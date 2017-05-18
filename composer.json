@@ -1,0 +1,21 @@
+{
+    "name": "inquid/yii2-inquid-zendesk-chat",
+    "description": "Embed Zendesk chat widget for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","zendesk","inquid","chat"],
+    "license": "LGPL-3.0+",
+    "authors": [
+        {
+            "name": "inquid",
+            "email": "contact@inquid.co"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "inquid\\zendeskchat\\": ""
+        }
+    }
+}
