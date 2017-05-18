@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Yii2 Inquid Zendesk Chat
 ========================
 Embed Zendesk chat widget for Yii2
@@ -29,3 +30,7 @@ Once the extension is installed, simply use it in your code by  :
 
 ```php
 <?= \inquid\zendeskchat\AutoloadExample::widget(); ?>```
+=======
+# yii2-inquid-zendesk-chat
+Embed Zendesk chat widget for Yii2
+>>>>>>> d37056d63639b9a4b3427d3d9fd29c5f26ae3dc6
