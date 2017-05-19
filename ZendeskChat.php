@@ -10,6 +10,7 @@ use InvalidArgumentException;
 class ZendeskChat extends \yii\base\Widget
 {
     public $host;
+    const ZENDESK_URL = ".zendesk.com";
 
     public function init()
     {
@@ -20,8 +21,8 @@ class ZendeskChat extends \yii\base\Widget
             else
                 throw new InvalidArgumentException('Missing zendesk host');
         }
-        if (!$this->endsWith($this->host, ".zendesk.com")) {
-            $this->host = $this->host . ".zendesk.com";
+        if (!$this->endsWith($this->host, self::ZENDESK_URL)) {
+            $this->host = $this->host . self::ZENDESK_URL;
         }
     }
 
@@ -46,12 +47,6 @@ class ZendeskChat extends \yii\base\Widget
         }();
         /*]]>*/</script>
     <!-- End of inquid Zendesk Widget script -->";
-    }
-
-    private function startsWith($haystack, $needle)
-    {
-        $length = strlen($needle);
-        return (substr($haystack, 0, $length) === $needle);
     }
 
     private function endsWith($haystack, $needle)
