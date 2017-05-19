@@ -60,8 +60,9 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 ...
-```
+
 Set the param from your params config file
+
 ```
 <?php
 
@@ -70,9 +71,9 @@ return [
     'zendesk_host' => 'inquid',
 ];
 ```
-NOTE that ".zendesk.com" its optional, if missing it will be added
-
 Or add it directly in the call
 ```php
 <?= \inquid\zendeskchat\ZendeskChat::widget(['host'=>'inquid']); ?>```
+
+NOTE that ".zendesk.com" its optional, if missing it will be added
 
