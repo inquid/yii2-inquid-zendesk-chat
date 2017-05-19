@@ -25,11 +25,39 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
-
+Once the extension is installed, simply add an echo of this line, like this:
+(For single view)
 ```php
 <?= \inquid\zendeskchat\ZendeskChat::widget(); ?>```
-=======
-# yii2-inquid-zendesk-chat
-Embed Zendesk chat widget for Yii2
->>>>>>> d37056d63639b9a4b3427d3d9fd29c5f26ae3dc6
+
+If you want to use it in all views add this in your layout file, for example:
+```php
+<?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+use yii\helpers\Html;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+use app\assets\AppAsset;
+
+AppAsset::register($this);
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+    <?= \inquid\zendeskchat\ZendeskChat::widget(); ?>
+</head>
+<body>
+<?php $this->beginBody() ?>
+...
+```

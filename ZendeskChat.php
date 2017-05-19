@@ -2,6 +2,8 @@
 
 namespace inquid\zendeskchat;
 
+use InvalidArgumentException;
+
 /**
  * This is just an example.
  */
@@ -13,7 +15,10 @@ class ZendeskChat extends \yii\base\Widget
     {
         parent::init();
         if ($this->host === null) {
-            $this->host = \Yii::$app->params['zendesk_host'];
+            if (isset(\Yii::$app->params['zendesk_host']))
+                $this->host = \Yii::$app->params['zendesk_host'];
+            else
+                throw new InvalidArgumentException('Missing zendesk host');
         }
         if (!$this->endsWith($this->host, ".zendesk.com")) {
             $this->host = $this->host . ".zendesk.com";
