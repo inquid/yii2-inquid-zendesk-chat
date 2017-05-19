@@ -28,7 +28,8 @@ Usage
 Once the extension is installed, simply add an echo of this line, like this:
 (For single view)
 ```php
-<?= \inquid\zendeskchat\ZendeskChat::widget(); ?>```
+<?= \inquid\zendeskchat\ZendeskChat::widget(); ?>
+```
 
 If you want to use it in all views add this in your layout file, for example:
 ```php
@@ -59,11 +60,10 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-...
+```
 
 Set the param from your params config file
-
-```
+```php
 <?php
 
 return [
@@ -73,7 +73,8 @@ return [
 ```
 Or add it directly in the call
 ```php
-<?= \inquid\zendeskchat\ZendeskChat::widget(['host'=>'inquid']); ?>```
+<?= \inquid\zendeskchat\ZendeskChat::widget(['host'=>'inquid']); ?>
+```
 
 NOTE that ".zendesk.com" its optional, if missing it will be added
 
