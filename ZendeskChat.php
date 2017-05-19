@@ -7,6 +7,22 @@ namespace inquid\zendeskchat;
  */
 class ZendeskChat extends \yii\base\Widget
 {
+    public $host;
+
+    public function init()
+    {
+        parent::init();
+        if ($this->host === null) {
+            $this->host = \Yii::$app->params['zendesk_host'];
+        }
+        if (!$this->startsWith($this->host, "https://")) {
+            $this->host = "https://" . $this->host;
+        }
+        if (!$this->endsWith($this->host, ".zendesk.com")) {
+            $this->host = $this->host . ".zendesk.com";
+        }
+    }
+
     public function run()
     {
         return "<!-- Start of inquid Zendesk Widget script -->
@@ -23,10 +39,26 @@ class ZendeskChat extends \yii\base\Widget
             }
             o.open()._l = function () {
                 var e = this.createElement(\"script\");
-                n && (this.domain = n), e.id = \"js-iframe-async\", e.src = \"https://assets.zendesk.com/embeddable_framework/main.js\", this.t = +new Date, this.zendeskHost = \"inquid.zendesk.com\", this.zEQueue = a, this.body.appendChild(e)
+                n && (this.domain = n), e.id = \"js-iframe-async\", e.src = \"https://assets.zendesk.com/embeddable_framework/main.js\", this.t = +new Date, this.zendeskHost = \"" . $this->host . "\", this.zEQueue = a, this.body.appendChild(e)
             }, o.write('<body onload=\"document._l();\">'), o.close()
         }();
         /*]]>*/</script>
     <!-- End of inquid Zendesk Widget script -->";
+    }
+
+    private function startsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        return (substr($haystack, 0, $length) === $needle);
+    }
+
+    private function endsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        if ($length == 0) {
+            return true;
+        }
+
+        return (substr($haystack, -$length) === $needle);
     }
 }
