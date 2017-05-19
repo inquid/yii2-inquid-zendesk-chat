@@ -15,9 +15,6 @@ class ZendeskChat extends \yii\base\Widget
         if ($this->host === null) {
             $this->host = \Yii::$app->params['zendesk_host'];
         }
-        if (!$this->startsWith($this->host, "https://")) {
-            $this->host = "https://" . $this->host;
-        }
         if (!$this->endsWith($this->host, ".zendesk.com")) {
             $this->host = $this->host . ".zendesk.com";
         }
